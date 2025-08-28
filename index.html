@@ -22,9 +22,14 @@
         --beige-color: #f5f0e6; /* Soft beige */
         --text-color: #6d4c41; /* Warm brown */
         --light-text: #8d6e63; /* Lighter warm brown */
-        --background-color: #fdfaf7; /* Creamy background */
-        --card-background: #ffffff;
-        --border-color: #f2e6e6;
+        --background-color: transparent; /* Transparent for Notion */
+        --card-background: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* Semi-transparent white */
+        --border-color: rgba(212, 165, 165, 0.3);
         --success-color: #a5d6a7;
         --error-color: #ef9a9a;
         --warning-color: #ffcc80;
@@ -32,33 +37,47 @@
         --shadow-medium: 0 4px 8px rgba(212, 165, 165, 0.15);
         --shadow-heavy: 0 8px 16px rgba(212, 165, 165, 0.2);
       }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, sans-serif;
         background-color: var(--background-color);
         margin: 0;
-        padding: 15px;
+        padding: 10px;
         color: var(--text-color);
-        line-height: 1.6;
-        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f2e6e6' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+        line-height: 1.4;
+        min-height: 100vh;
+        overflow-x: hidden;
       }
+
+      .app-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+      }
+
       h1 {
         text-align: center;
         color: var(--text-color);
         font-family: "Dancing Script", cursive;
         font-weight: 700;
-        margin-bottom: 30px;
-        font-size: 42px;
+        margin: 10px 0;
+        font-size: 32px;
         position: relative;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
       }
+
       h1::after {
         content: "";
         position: absolute;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 120px;
+        width: 100px;
         height: 3px;
         background: linear-gradient(
           90deg,
@@ -67,67 +86,78 @@
           transparent
         );
       }
+
       .main-container {
         display: flex;
-        gap: 30px;
-        max-width: 1400px;
-        margin: 0 auto;
+        flex-direction: column; /* Changed to column for mobile */
+        gap: 15px;
+        max-width: 100%;
       }
-      .left-panel {
-        width: 340px;
+
+      .left-panel,
+      .right-panel {
+        width: 100%;
       }
+
       .panel {
         background-color: var(--card-background);
         border-radius: 12px;
-        padding: 25px;
+        padding: 15px;
         box-shadow: var(--shadow-light);
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         border: 1px solid var(--border-color);
         position: relative;
         overflow: hidden;
+        backdrop-filter: blur(10px);
       }
+
       .panel::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 5px;
+        height: 4px;
         background: linear-gradient(
           90deg,
           var(--primary-color),
           var(--secondary-color)
         );
       }
+
       .form-group {
-        margin-bottom: 18px;
+        margin-bottom: 12px;
       }
+
       label {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 5px;
         font-weight: 500;
         color: var(--light-text);
-        font-size: 14px;
+        font-size: 13px;
       }
+
       input,
       select,
       button {
         width: 100%;
-        padding: 12px 14px;
-        margin-top: 5px;
+        padding: 8px 10px;
+        margin-top: 3px;
         border: 1px solid var(--border-color);
-        border-radius: 8px;
-        font-size: 14px;
+        border-radius: 6px;
+        font-size: 13px;
         font-family: "Inter", sans-serif;
         transition: all 0.3s ease;
         box-sizing: border-box;
       }
+
       input:focus,
       select:focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.2);
+        box-shadow: 0 0 0 2px rgba(212, 165, 165, 0.2);
       }
+
       button {
         background-color: var(--primary-color);
         color: white;
@@ -135,310 +165,286 @@
         cursor: pointer;
         transition: all 0.3s ease;
         border: none;
-        margin-top: 12px;
-        padding: 12px 14px;
-        font-size: 14px;
+        margin-top: 8px;
+        padding: 8px 10px;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        border-radius: 8px;
+        gap: 6px;
       }
+
       button:hover {
         background-color: #c89292;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-medium);
       }
+
       button:active {
         transform: translateY(0);
       }
+
       .secondary-btn {
         background-color: var(--secondary-color);
         color: var(--primary-color);
       }
+
       .secondary-btn:hover {
         background-color: #e6d0d0;
       }
+
       button.active {
         background-color: var(--primary-color);
         color: white;
       }
+
       /* Guest Table Styling */
       .guest-table-container {
         overflow-x: auto;
-        border-radius: 12px;
+        border-radius: 8px;
         border: 1px solid var(--border-color);
         background-color: var(--card-background);
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         box-shadow: var(--shadow-light);
-        max-height: 400px;
+        max-height: 250px;
         overflow-y: auto;
       }
+
       .guest-table {
         width: 100%;
         border-collapse: collapse;
+        font-size: 12px;
       }
+
       .guest-table th {
         background-color: var(--accent-color);
-        padding: 14px 18px;
+        padding: 8px 10px;
         text-align: left;
         font-weight: 600;
         color: var(--light-text);
         border-bottom: 1px solid var(--border-color);
-        font-size: 14px;
+        font-size: 12px;
         position: sticky;
         top: 0;
         z-index: 10;
       }
+
       .guest-table td {
-        padding: 14px 18px;
+        padding: 8px 10px;
         border-bottom: 1px solid var(--border-color);
-        font-size: 14px;
+        font-size: 12px;
       }
+
       .guest-table tr:hover {
         background-color: var(--accent-color);
       }
+
       .guest-table tr:last-child td {
         border-bottom: none;
       }
+
       .status-badge {
         display: inline-block;
-        padding: 4px 10px;
-        border-radius: 20px;
-        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 12px;
+        font-size: 10px;
         font-weight: 500;
         text-align: center;
       }
+
       .status-attending {
         background-color: rgba(165, 214, 167, 0.2);
         color: #2e7d32;
       }
+
       .status-pending {
         background-color: rgba(255, 204, 128, 0.2);
         color: #e65100;
       }
+
       .status-declined {
         background-color: rgba(239, 154, 154, 0.2);
         color: #c62828;
       }
+
       .side-badge {
         display: inline-block;
-        padding: 4px 10px;
-        border-radius: 20px;
-        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 12px;
+        font-size: 10px;
         font-weight: 500;
       }
+
       .side-bride {
         background-color: rgba(255, 182, 193, 0.3);
         color: #d63384;
       }
+
       .side-groom {
         background-color: rgba(173, 216, 230, 0.3);
         color: #0d6efd;
       }
+
       .side-couple {
         background-color: rgba(204, 153, 255, 0.3);
         color: #6f42c1;
       }
+
       .side-other {
         background-color: rgba(211, 211, 211, 0.3);
         color: #6c757d;
       }
+
       /* View Toggle */
       .view-toggle {
         display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
+        gap: 8px;
+        margin-bottom: 15px;
       }
+
       /* Guest List Styling */
       .guest-list-container {
-        margin-top: 18px;
-        border-radius: 12px;
+        margin-top: 15px;
+        border-radius: 8px;
         border: 1px solid var(--border-color);
         background-color: var(--card-background);
         overflow: hidden;
         box-shadow: var(--shadow-light);
       }
+
       .guest-list-header {
         background-color: var(--accent-color);
-        padding: 12px 18px;
+        padding: 8px 12px;
         font-weight: 600;
         color: var(--light-text);
         border-bottom: 1px solid var(--border-color);
-        font-size: 14px;
+        font-size: 13px;
       }
+
       .guest-list {
-        max-height: 220px;
+        max-height: 150px;
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: var(--primary-color) var(--accent-color);
       }
+
       .guest-list::-webkit-scrollbar {
         width: 6px;
       }
+
       .guest-list::-webkit-scrollbar-track {
         background: var(--accent-color);
         border-radius: 3px;
       }
+
       .guest-list::-webkit-scrollbar-thumb {
         background-color: var(--primary-color);
         border-radius: 3px;
       }
+
       .guest-item {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 12px 18px;
+        padding: 8px 12px;
         border-bottom: 1px solid var(--border-color);
         transition: background-color 0.3s;
       }
+
       .guest-item:last-child {
         border-bottom: none;
       }
+
       .guest-item:hover {
         background-color: var(--accent-color);
       }
+
       .guest-name {
         flex: 1;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 14px;
+        font-size: 12px;
       }
+
       .guest-info {
         display: flex;
         align-items: center;
-        gap: 8px;
-        margin-left: 10px;
+        gap: 6px;
+        margin-left: 8px;
       }
+
       .guest-side {
-        font-size: 11px;
-        padding: 3px 8px;
-        border-radius: 20px;
+        font-size: 10px;
+        padding: 2px 5px;
+        border-radius: 12px;
         font-weight: 500;
       }
+
       .edit-guest,
       .delete-guest {
         background: none;
         border: none;
         color: var(--primary-color);
         cursor: pointer;
-        font-size: 14px;
+        font-size: 12px;
         padding: 0;
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
         transition: all 0.3s;
       }
+
       .edit-guest:hover,
       .delete-guest:hover {
         background-color: rgba(212, 165, 165, 0.1);
       }
+
       /* Edit Form */
       .edit-form {
-        padding: 14px 18px;
+        padding: 10px 12px;
         border-bottom: 1px solid var(--border-color);
         background-color: var(--accent-color);
       }
-      .right-panel {
-        flex: 1;
-        padding-bottom: 25px;
-      }
-      .tables-container {
-        display: flex;
-        gap: 30px;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-bottom: 15px;
-      }
-      /* Floor Plan Styles */
-      .floor-plan {
-        width: 100%;
-        height: 600px;
-        background-color: var(--accent-color);
-        border-radius: 12px;
-        position: relative;
-        margin-bottom: 25px;
-        overflow: hidden;
-        box-shadow: var(--shadow-light);
-      }
-      .floor-plan-table {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--card-background);
-        border: 1px solid var(--border-color);
-        cursor: move;
-        transition: all 0.3s ease;
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        user-select: none;
-        box-shadow: var(--shadow-light);
-      }
-      .floor-plan-table:hover {
-        box-shadow: var(--shadow-medium);
-      }
-      .floor-plan-table.dragging {
-        opacity: 0.8;
-        transform: scale(1.05);
-        z-index: 1000;
-        box-shadow: var(--shadow-heavy);
-      }
-      .floor-plan-table-name {
-        font-family: "Inter", sans-serif;
-        font-size: 12px;
-        color: var(--text-color);
-        text-align: center;
-        margin-bottom: 5px;
-        font-weight: 600;
-      }
-      .floor-plan-table-count {
-        font-size: 10px;
-        background-color: var(--primary-color);
-        color: white;
-        border-radius: 20px;
-        padding: 2px 8px;
-        font-weight: 500;
-      }
+
       /* Table Card Styles - Round tables */
       .table-card {
         position: relative;
-        width: 220px;
-        height: 220px;
+        width: 160px;
+        height: 160px;
         border-radius: 50%;
         background-color: var(--card-background);
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 20px;
+        padding: 15px;
         flex-shrink: 0;
         box-shadow: var(--shadow-light);
         border: 1px solid var(--border-color);
         transition: all 0.3s ease;
         overflow: hidden;
+        margin: 0 auto 15px;
       }
+
       .table-card:hover {
         box-shadow: var(--shadow-medium);
-        transform: translateY(-5px);
+        transform: translateY(-3px);
       }
+
       .table-header {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
       }
+
       .table-card h3 {
         margin: 0;
         font-family: "Playfair Display", serif;
-        font-size: 18px;
+        font-size: 14px;
         color: var(--text-color);
         text-align: center;
         flex-grow: 1;
@@ -447,16 +453,18 @@
         text-overflow: ellipsis;
         font-weight: 600;
       }
+
       .guest-count {
-        font-size: 12px;
+        font-size: 11px;
         background-color: var(--secondary-color);
         color: var(--primary-color);
-        border-radius: 20px;
-        padding: 3px 10px;
+        border-radius: 12px;
+        padding: 2px 6px;
         font-weight: 500;
         flex-shrink: 0;
-        margin-top: 5px;
+        margin-top: 3px;
       }
+
       .floor-plan-delete-table {
         position: absolute;
         top: -5px;
@@ -465,9 +473,9 @@
         border: 1px solid var(--border-color);
         color: var(--light-text);
         cursor: pointer;
-        font-size: 12px;
-        width: 24px;
-        height: 24px;
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -476,12 +484,14 @@
         z-index: 20;
         box-shadow: var(--shadow-light);
       }
+
       .floor-plan-delete-table:hover {
         background: white;
         color: var(--error-color);
         transform: scale(1.1);
         box-shadow: var(--shadow-medium);
       }
+
       .table-card ul {
         list-style: none;
         padding: 0;
@@ -495,15 +505,16 @@
         overflow: hidden;
         position: relative;
       }
+
       .table-card ul li {
-        font-size: 10px;
-        margin: 3px;
-        padding: 8px;
+        font-size: 9px;
+        margin: 2px;
+        padding: 6px;
         border-radius: 50%;
         text-align: center;
         cursor: grab;
-        width: 36px;
-        height: 36px;
+        width: 28px;
+        height: 28px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -515,23 +526,28 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+
       .table-card ul li.bride {
         background-color: rgba(255, 182, 193, 0.4);
         color: #d63384;
       }
+
       .table-card ul li.groom {
         background-color: rgba(173, 216, 230, 0.4);
         color: #0d6efd;
       }
+
       .table-card ul li.other {
         background-color: rgba(211, 211, 211, 0.4);
         color: #6c757d;
       }
+
       .table-card ul li:hover {
         transform: scale(1.1);
         box-shadow: var(--shadow-medium);
         z-index: 5;
       }
+
       .table-card ul li:hover::after {
         content: attr(data-fullname) " | " attr(data-side) " | RSVP: "
           attr(data-rsvp);
@@ -541,72 +557,80 @@
         transform: translateX(-50%);
         background-color: var(--card-background);
         color: var(--text-color);
-        padding: 8px 12px;
-        border-radius: 8px;
-        font-size: 11px;
+        padding: 6px 8px;
+        border-radius: 6px;
+        font-size: 10px;
         white-space: nowrap;
         box-shadow: var(--shadow-medium);
         z-index: 10;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         border: 1px solid var(--border-color);
-        max-width: 150px;
+        max-width: 120px;
         overflow: hidden;
         text-overflow: ellipsis;
       }
+
       .empty-state {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 40px;
+        padding: 20px;
         color: var(--light-text);
         text-align: center;
       }
+
       .empty-state i {
-        font-size: 48px;
-        margin-bottom: 15px;
+        font-size: 32px;
+        margin-bottom: 10px;
         opacity: 0.5;
       }
+
       .empty-state p {
-        font-size: 16px;
-        max-width: 200px;
-        line-height: 1.4;
+        font-size: 14px;
+        max-width: 180px;
+        line-height: 1.3;
       }
+
       .fab {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
+        bottom: 20px;
+        right: 20px;
         background-color: var(--primary-color);
         color: white;
-        width: 56px;
-        height: 56px;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
+        font-size: 20px;
         cursor: pointer;
         box-shadow: var(--shadow-medium);
         transition: all 0.3s ease;
         z-index: 1000;
       }
+
       .fab:hover {
         background-color: #c89292;
         transform: scale(1.05);
       }
+
       .fab-menu {
         position: fixed;
-        bottom: 90px;
-        right: 30px;
+        bottom: 75px;
+        right: 20px;
         display: none;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
         z-index: 1000;
       }
+
       .fab-menu.show {
         display: flex;
         animation: slideUp 0.3s ease;
       }
+
       @keyframes slideUp {
         from {
           opacity: 0;
@@ -617,72 +641,83 @@
           transform: translateY(0);
         }
       }
+
       .fab-menu button {
         background-color: white;
         border: 1px solid var(--border-color);
-        padding: 12px 16px;
+        padding: 10px 12px;
         border-radius: 8px;
         color: var(--text-color);
-        font-size: 14px;
-        width: 160px;
+        font-size: 13px;
+        width: 140px;
         box-shadow: var(--shadow-light);
         text-align: left;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         transition: all 0.3s ease;
       }
+
       .fab-menu button:hover {
         background-color: var(--accent-color);
         transform: translateX(-5px);
       }
+
       .fab-menu button i {
         color: var(--primary-color);
-        font-size: 16px;
+        font-size: 14px;
       }
+
       .notification {
         position: fixed;
         top: 20px;
         right: 20px;
         background-color: white;
         color: var(--text-color);
-        padding: 16px 20px;
-        border-radius: 12px;
+        padding: 12px 16px;
+        border-radius: 8px;
         box-shadow: var(--shadow-medium);
         border-left: 4px solid var(--primary-color);
         z-index: 2000;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
         transform: translateX(120%);
         transition: transform 0.3s ease;
       }
+
       .notification.show {
         transform: translateX(0);
       }
+
       .notification i {
         color: var(--primary-color);
-        font-size: 18px;
+        font-size: 16px;
       }
+
       .notification.success {
         border-left-color: var(--success-color);
       }
+
       .notification.success i {
         color: var(--success-color);
       }
+
       .notification.error {
         border-left-color: var(--error-color);
       }
+
       .notification.error i {
         color: var(--error-color);
       }
+
       /* Trash Area Styling */
       .trash-area {
         position: fixed;
-        bottom: 30px;
-        left: 30px;
-        width: 60px;
-        height: 60px;
+        bottom: 20px;
+        left: 20px;
+        width: 48px;
+        height: 48px;
         background-color: var(--error-color);
         border-radius: 50%;
         display: flex;
@@ -693,326 +728,441 @@
         z-index: 999;
         opacity: 0.8;
       }
+
       .trash-area.active {
         background-color: #d63447;
         transform: scale(1.1);
         opacity: 1;
       }
+
       .trash-area i {
-        font-size: 24px;
+        font-size: 20px;
         color: white;
       }
+
       .trash-area span {
         position: absolute;
-        bottom: -25px;
+        bottom: -20px;
         background-color: #721c24;
         color: white;
-        padding: 4px 8px;
+        padding: 3px 6px;
         border-radius: 4px;
-        font-size: 12px;
+        font-size: 11px;
         white-space: nowrap;
         opacity: 0;
         transition: opacity 0.3s;
       }
+
       .trash-area:hover span {
         opacity: 1;
       }
+
+      /* Floor Plan Styles */
+      .floor-plan {
+        width: 100%;
+        height: 400px;
+        background-color: var(--accent-color);
+        border-radius: 8px;
+        position: relative;
+        margin-bottom: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+      }
+
+      .floor-plan-table {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--card-background);
+        border: 1px solid var(--border-color);
+        cursor: move;
+        transition: all 0.3s ease;
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        user-select: none;
+        box-shadow: var(--shadow-light);
+      }
+
+      .floor-plan-table:hover {
+        box-shadow: var(--shadow-medium);
+      }
+
+      .floor-plan-table.dragging {
+        opacity: 0.8;
+        transform: scale(1.05);
+        z-index: 1000;
+        box-shadow: var(--shadow-heavy);
+      }
+
+      .floor-plan-table-name {
+        font-family: "Inter", sans-serif;
+        font-size: 10px;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 3px;
+        font-weight: 600;
+      }
+
+      .floor-plan-table-count {
+        font-size: 8px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 12px;
+        padding: 1px 5px;
+        font-weight: 500;
+      }
+
       /* Floor Plan Instructions */
       .floor-plan-instructions {
         position: absolute;
-        top: 15px;
-        left: 15px;
+        top: 10px;
+        left: 10px;
         background-color: rgba(255, 255, 255, 0.9);
-        padding: 10px 15px;
-        border-radius: 8px;
-        font-size: 13px;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 11px;
         color: var(--light-text);
         z-index: 100;
         box-shadow: var(--shadow-light);
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
       }
+
       /* Action buttons styling */
       .action-buttons {
         display: flex;
-        gap: 5px;
+        gap: 4px;
       }
+
       .action-buttons button {
         width: auto;
         margin: 0;
-        padding: 8px 10px;
-        font-size: 12px;
+        padding: 4px 6px;
+        font-size: 11px;
       }
-      @media (max-width: 900px) {
+
+      .tables-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 10px;
+      }
+
+      /* For Notion embed optimization */
+      @media (min-width: 769px) {
         .main-container {
-          flex-direction: column;
-          gap: 25px;
+          flex-direction: row;
         }
+
         .left-panel {
-          width: 100%;
+          width: 300px;
+        }
+
+        .right-panel {
+          flex: 1;
         }
       }
-      @media (max-width: 600px) {
+
+      @media (max-width: 768px) {
+        .app-container {
+          padding: 0 5px;
+        }
+
         h1 {
-          font-size: 32px;
+          font-size: 24px;
         }
+
         .table-card {
-          width: 180px;
-          height: 180px;
-          padding: 15px;
+          width: 140px;
+          height: 140px;
+          padding: 12px;
         }
+
         .table-card ul li {
-          font-size: 9px;
-          width: 30px;
-          height: 30px;
-          padding: 6px;
+          font-size: 8px;
+          width: 24px;
+          height: 24px;
+          padding: 5px;
         }
+
         input,
         select,
         button {
-          font-size: 14px;
-          padding: 10px;
+          font-size: 12px;
+          padding: 7px 9px;
         }
+
         .fab-menu button {
-          width: 150px;
-          font-size: 13px;
+          width: 130px;
+          font-size: 12px;
         }
+
         .trash-area {
-          width: 50px;
-          height: 50px;
+          width: 42px;
+          height: 42px;
           bottom: 15px;
           left: 15px;
         }
+
         .trash-area i {
-          font-size: 20px;
+          font-size: 18px;
         }
+
         .floor-plan {
-          height: 400px;
+          height: 300px;
         }
+
         .guest-table-container {
-          font-size: 12px;
+          font-size: 11px;
         }
+
         .guest-table th,
         .guest-table td {
-          padding: 10px 12px;
+          padding: 6px 8px;
         }
+
         .floor-plan-instructions {
-          font-size: 11px;
-          padding: 6px 10px;
+          font-size: 10px;
+          padding: 5px 8px;
         }
+
         .action-buttons {
           flex-direction: column;
           gap: 2px;
         }
+
         .action-buttons button {
-          padding: 4px 6px;
+          padding: 3px 5px;
           font-size: 10px;
+        }
+
+        .fab {
+          width: 42px;
+          height: 42px;
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .fab i {
+          font-size: 18px;
         }
       }
     </style>
   </head>
   <body>
-    <h1>Wedding Seating Planner</h1>
-    <div class="main-container">
-      <div class="left-panel">
-        <div class="panel">
-          <h2
-            style="
-              margin-top: 0;
-              color: var(--text-color);
-              font-size: 22px;
-              font-weight: 600;
-              font-family: 'Playfair Display', serif;
-            "
-          >
-            Add Guest
-          </h2>
-          <div class="form-group">
-            <label for="guestName">Guest Name</label>
-            <input type="text" id="guestName" placeholder="Enter guest name" />
-          </div>
-          <div class="form-group">
-            <label for="guestSide">Side</label>
-            <select id="guestSide">
-              <option value="Bride">Bride</option>
-              <option value="Groom">Groom</option>
-              <option value="Couple">Couple</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="guestRSVP">RSVP Status</label>
-            <select id="guestRSVP">
-              <option value="Attending">Attending</option>
-              <option value="Declined">Declined</option>
-              <option value="Pending">Pending</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="invitationSent">Invitation Sent</label>
-            <select id="invitationSent">
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="saveTheDate">Save The Date Sent</label>
-            <select id="saveTheDate">
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-          <button id="addGuest">
-            <i class="fas fa-user-plus"></i> Add Guest
-          </button>
-          <h2
-            style="
-              margin-top: 30px;
-              color: var(--text-color);
-              font-size: 22px;
-              font-weight: 600;
-              font-family: 'Playfair Display', serif;
-            "
-          >
-            Unassigned Guests
-          </h2>
-          <div class="guest-list-container">
-            <div class="guest-list-header">Drag guests to tables</div>
-            <div
-              class="form-group"
-              style="margin-top: 12px; margin-bottom: 0; padding: 0 18px"
+    <div class="app-container">
+      <h1>Wedding Seating Planner</h1>
+      <div class="main-container">
+        <div class="left-panel">
+          <div class="panel">
+            <h2
+              style="
+                margin-top: 0;
+                color: var(--text-color);
+                font-size: 18px;
+                font-weight: 600;
+                font-family: 'Playfair Display', serif;
+              "
             >
-              <div style="position: relative">
-                <input
-                  type="text"
-                  id="searchGuests"
-                  placeholder="Search guests..."
-                  style="padding-left: 38px"
-                />
-                <i
-                  class="fas fa-search"
-                  style="
-                    position: absolute;
-                    left: 18px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    color: var(--primary-color);
-                  "
-                ></i>
+              Add Guest
+            </h2>
+            <div class="form-group">
+              <label for="guestName">Guest Name</label>
+              <input
+                type="text"
+                id="guestName"
+                placeholder="Enter guest name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="guestSide">Side</label>
+              <select id="guestSide">
+                <option value="Bride">Bride</option>
+                <option value="Groom">Groom</option>
+                <option value="Couple">Couple</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="guestRSVP">RSVP Status</label>
+              <select id="guestRSVP">
+                <option value="Attending">Attending</option>
+                <option value="Declined">Declined</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="invitationSent">Invitation Sent</label>
+              <select id="invitationSent">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="saveTheDate">Save The Date Sent</label>
+              <select id="saveTheDate">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <button id="addGuest">
+              <i class="fas fa-user-plus"></i> Add Guest
+            </button>
+            <h2
+              style="
+                margin-top: 20px;
+                color: var(--text-color);
+                font-size: 18px;
+                font-weight: 600;
+                font-family: 'Playfair Display', serif;
+              "
+            >
+              Unassigned Guests
+            </h2>
+            <div class="guest-list-container">
+              <div class="guest-list-header">Drag guests to tables</div>
+              <div
+                class="form-group"
+                style="margin-top: 10px; margin-bottom: 0; padding: 0 12px"
+              >
+                <div style="position: relative">
+                  <input
+                    type="text"
+                    id="searchGuests"
+                    placeholder="Search guests..."
+                    style="padding-left: 32px"
+                  />
+                  <i
+                    class="fas fa-search"
+                    style="
+                      position: absolute;
+                      left: 12px;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      color: var(--primary-color);
+                    "
+                  ></i>
+                </div>
+              </div>
+              <div class="guest-list" id="guestList">
+                <div id="emptyGuestList" class="empty-state">
+                  <i class="fas fa-users"></i>
+                  <p>No guests added yet</p>
+                </div>
               </div>
             </div>
-            <div class="guest-list" id="guestList">
-              <div id="emptyGuestList" class="empty-state">
-                <i class="fas fa-users"></i>
-                <p>No guests added yet</p>
-              </div>
+            <h2
+              style="
+                margin-top: 20px;
+                color: var(--text-color);
+                font-size: 18px;
+                font-weight: 600;
+                font-family: 'Playfair Display', serif;
+              "
+            >
+              Add Table
+            </h2>
+            <div class="form-group">
+              <label for="tableNameInput">Table Name (optional)</label>
+              <input
+                type="text"
+                id="tableNameInput"
+                placeholder="e.g. Family Table"
+              />
+            </div>
+            <button id="addTable">
+              <i class="fas fa-plus-circle"></i> Add Table
+            </button>
+            <div
+              style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px"
+            >
+              <button id="exportPDF" class="secondary-btn">
+                <i class="fas fa-file-pdf"></i> Export PDF
+              </button>
+              <button id="generatePlaceCards" class="secondary-btn">
+                <i class="fas fa-id-card"></i> Place Cards
+              </button>
+              <button id="resetAll" class="secondary-btn">
+                <i class="fas fa-redo"></i> Reset All
+              </button>
             </div>
           </div>
-          <h2
-            style="
-              margin-top: 30px;
-              color: var(--text-color);
-              font-size: 22px;
-              font-weight: 600;
-              font-family: 'Playfair Display', serif;
-            "
-          >
-            Add Table
-          </h2>
-          <div class="form-group">
-            <label for="tableNameInput">Table Name (optional)</label>
-            <input
-              type="text"
-              id="tableNameInput"
-              placeholder="e.g. Family Table"
-            />
-          </div>
-          <button id="addTable">
-            <i class="fas fa-plus-circle"></i> Add Table
-          </button>
-          <div
-            style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px"
-          >
-            <button id="exportPDF" class="secondary-btn">
-              <i class="fas fa-file-pdf"></i> Export PDF
-            </button>
-            <button id="generatePlaceCards" class="secondary-btn">
-              <i class="fas fa-id-card"></i> Place Cards
-            </button>
-            <button id="resetAll" class="secondary-btn">
-              <i class="fas fa-redo"></i> Reset All
-            </button>
-          </div>
         </div>
-      </div>
-      <div class="right-panel">
-        <!-- Guest List Table -->
-        <div class="guest-table-container">
-          <div
-            class="guest-list-header"
-            style="
-              padding: 18px;
-              font-size: 20px;
-              font-weight: 600;
-              font-family: 'Playfair Display', serif;
-            "
-          >
-            <i class="fas fa-users"></i> Guest List
+        <div class="right-panel">
+          <!-- Guest List Table -->
+          <div class="guest-table-container">
+            <div
+              class="guest-list-header"
+              style="
+                padding: 12px;
+                font-size: 16px;
+                font-weight: 600;
+                font-family: 'Playfair Display', serif;
+              "
+            >
+              <i class="fas fa-users"></i> Guest List
+            </div>
+            <table class="guest-table">
+              <thead>
+                <tr>
+                  <th>Guest Name</th>
+                  <th>Side</th>
+                  <th>RSVP</th>
+                  <th>Invitation</th>
+                  <th>Save the Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="guestTableBody">
+                <tr id="emptyGuestRow">
+                  <td
+                    colspan="6"
+                    style="
+                      text-align: center;
+                      padding: 20px;
+                      color: var(--light-text);
+                    "
+                  >
+                    <i class="fas fa-users"></i><br />No guests added yet
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <table class="guest-table">
-            <thead>
-              <tr>
-                <th>Guest Name</th>
-                <th>Side</th>
-                <th>RSVP</th>
-                <th>Invitation</th>
-                <th>Save the Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="guestTableBody">
-              <tr id="emptyGuestRow">
-                <td
-                  colspan="6"
-                  style="
-                    text-align: center;
-                    padding: 25px;
-                    color: var(--light-text);
-                  "
-                >
-                  <i class="fas fa-users"></i><br />No guests added yet
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- Seating Arrangement Section -->
-        <div class="panel">
-          <h2
-            style="
-              margin-top: 0;
-              color: var(--text-color);
-              font-size: 22px;
-              font-weight: 600;
-              font-family: 'Playfair Display', serif;
-            "
-          >
-            Seating Arrangement
-          </h2>
-          <!-- View Toggle -->
-          <div class="view-toggle">
-            <button id="tableView" class="secondary-btn active">
-              <i class="fas fa-th"></i> Table View
-            </button>
-            <button id="floorPlanView" class="secondary-btn">
-              <i class="fas fa-map"></i> Floor Plan
-            </button>
-          </div>
-          <div class="tables-container" id="tablesContainer">
-            <div id="emptyTables" class="empty-state" style="width: 100%">
-              <i class="fas fa-chair"></i>
-              <p>No tables created yet. Add your first table to get started!</p>
+          <!-- Seating Arrangement Section -->
+          <div class="panel">
+            <h2
+              style="
+                margin-top: 0;
+                color: var(--text-color);
+                font-size: 18px;
+                font-weight: 600;
+                font-family: 'Playfair Display', serif;
+              "
+            >
+              Seating Arrangement
+            </h2>
+            <!-- View Toggle -->
+            <div class="view-toggle">
+              <button id="tableView" class="secondary-btn active">
+                <i class="fas fa-th"></i> Table View
+              </button>
+              <button id="floorPlanView" class="secondary-btn">
+                <i class="fas fa-map"></i> Floor Plan
+              </button>
+            </div>
+            <div class="tables-container" id="tablesContainer">
+              <div id="emptyTables" class="empty-state" style="width: 100%">
+                <i class="fas fa-chair"></i>
+                <p>
+                  No tables created yet. Add your first table to get started!
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1052,6 +1202,7 @@
         tables: [],
         tablePositions: {},
       };
+
       // Load data from localStorage if available
       function loadData() {
         try {
@@ -1067,6 +1218,7 @@
           console.error("Error loading data from localStorage:", error);
         }
       }
+
       // Save data to localStorage
       function saveData() {
         try {
@@ -1083,6 +1235,7 @@
           );
         }
       }
+
       // Function to renumber tables after deletion
       function renumberTables() {
         // Find all auto-named tables (pattern: "Table X")
@@ -1129,14 +1282,15 @@
         // Save the updated data
         saveData();
       }
+
       // Function to calculate position for new table in floor plan
       function calculateNewTablePosition() {
         // Grid layout for initial positioning
-        const cols = 4;
-        const tableWidth = 140; // Including margin
-        const tableHeight = 140; // Including margin
-        const startX = 50;
-        const startY = 100;
+        const cols = 3;
+        const tableWidth = 100; // Including margin
+        const tableHeight = 100; // Including margin
+        const startX = 30;
+        const startY = 80;
         // Count existing tables
         const existingTables = weddingData.tables.length;
         // Calculate position in grid
@@ -1147,6 +1301,7 @@
           top: startY + row * tableHeight,
         };
       }
+
       // Render loaded data
       function renderData() {
         console.log("Rendering data...");
@@ -1267,6 +1422,7 @@
         // Update table positions
         tablePositions = weddingData.tablePositions || {};
       }
+
       const tablesContainer = document.getElementById("tablesContainer");
       const addTableBtn = document.getElementById("addTable");
       const addGuestBtn = document.getElementById("addGuest");
@@ -1296,8 +1452,10 @@
       let tables = [];
       let currentView = "table";
       let tablePositions = {};
+
       // Load data when page loads
       document.addEventListener("DOMContentLoaded", loadData);
+
       // Show notification
       function showNotification(message, type = "success") {
         notificationText.textContent = message;
@@ -1314,12 +1472,14 @@
           notification.classList.remove("show");
         }, 3000);
       }
+
       // Toggle FAB menu
       fab.addEventListener("click", () => {
         fabMenu.classList.toggle("show");
         fab.querySelector("i").classList.toggle("fa-plus");
         fab.querySelector("i").classList.toggle("fa-times");
       });
+
       // Check if guest exists anywhere
       function guestExistsAnywhere(name) {
         const inPool = [...guestList.querySelectorAll(".guest-item")].some(
@@ -1337,6 +1497,7 @@
         );
         return inPool || inTable || inTables;
       }
+
       // Add guest function
       function addGuest() {
         const name = guestNameInput.value.trim();
@@ -1402,6 +1563,7 @@
         guestNameInput.value = "";
         showNotification(`Guest "${name}" added successfully`);
       }
+
       // Add guest to table view
       function addGuestToTable(name, side, rsvp, invitationSent, saveTheDate) {
         // Remove empty state if visible
@@ -1436,6 +1598,7 @@
         `;
         guestTableBody.appendChild(row);
       }
+
       // Edit guest function
       function editGuest(guestElement, isTable = false) {
         const name = guestElement.dataset.name;
@@ -1447,11 +1610,11 @@
         const editForm = document.createElement("div");
         editForm.className = "edit-form";
         editForm.innerHTML = `
-          <div class="form-group" style="margin-bottom: 12px;">
+          <div class="form-group" style="margin-bottom: 10px;">
             <label>Guest Name</label>
             <input type="text" id="editGuestName" value="${name}">
           </div>
-          <div class="form-group" style="margin-bottom: 12px;">
+          <div class="form-group" style="margin-bottom: 10px;">
             <label>Side</label>
             <select id="editGuestSide">
               <option value="Bride" ${
@@ -1468,7 +1631,7 @@
               }>Other</option>
             </select>
           </div>
-          <div class="form-group" style="margin-bottom: 12px;">
+          <div class="form-group" style="margin-bottom: 10px;">
             <label>RSVP Status</label>
             <select id="editGuestRSVP">
               <option value="Attending" ${
@@ -1482,7 +1645,7 @@
               }>Pending</option>
             </select>
           </div>
-          <div class="form-group" style="margin-bottom: 12px;">
+          <div class="form-group" style="margin-bottom: 10px;">
             <label>Invitation Sent</label>
             <select id="editInvitationSent">
               <option value="Yes" ${
@@ -1493,7 +1656,7 @@
               }>No</option>
             </select>
           </div>
-          <div class="form-group" style="margin-bottom: 12px;">
+          <div class="form-group" style="margin-bottom: 10px;">
             <label>Save The Date Sent</label>
             <select id="editSaveTheDate">
               <option value="Yes" ${
@@ -1504,7 +1667,7 @@
               }>No</option>
             </select>
           </div>
-          <div style="display: flex; gap: 10px;">
+          <div style="display: flex; gap: 8px;">
             <button id="saveGuestEdit"><i class="fas fa-save"></i> Save</button>
             <button id="cancelGuestEdit" class="secondary-btn"><i class="fas fa-times"></i> Cancel</button>
           </div>
@@ -1704,6 +1867,7 @@
             });
         }
       }
+
       // Function to rebuild tables container from data model
       function rebuildTablesContainer() {
         // Clear the tables container
@@ -1847,6 +2011,7 @@
         });
         updateGuestCount();
       }
+
       // Create table function
       function createTable(num, name = "", saveToData = true) {
         const table = document.createElement("div");
@@ -1948,6 +2113,7 @@
         emptyTables.style.display = "none";
         showNotification(`Table "${title.textContent}" created`);
       }
+
       // Update guest count for tables
       function updateGuestCount() {
         tables.forEach((table) => {
@@ -1978,6 +2144,7 @@
           }
         });
       }
+
       // Event listeners
       addGuestBtn.addEventListener("click", addGuest);
       guestNameInput.addEventListener("keypress", (e) => {
@@ -1988,6 +2155,7 @@
         createTable(tables.length + 1, tableName);
         tableNameInput.value = "";
       });
+
       // Edit guest from table
       document.addEventListener("click", (e) => {
         if (e.target.closest(".guest-row .edit-guest")) {
@@ -2002,6 +2170,7 @@
           editGuest(guestItem, false);
         }
       });
+
       // Delete guest from table
       document.addEventListener("click", (e) => {
         if (e.target.closest(".guest-row .delete-guest")) {
@@ -2100,6 +2269,7 @@
           }
         }
       });
+
       // Search guests
       searchGuestsInput.addEventListener("input", (e) => {
         const searchTerm = e.target.value.toLowerCase();
@@ -2114,6 +2284,7 @@
           }
         });
       });
+
       // Export PDF
       exportPDFBtn.addEventListener("click", () => {
         const { jsPDF } = window.jspdf;
@@ -2233,6 +2404,7 @@
         doc.save("Wedding-Seating-Chart.pdf");
         showNotification("Seating chart exported successfully");
       });
+
       // Generate Place Cards
       generatePlaceCardsBtn.addEventListener("click", () => {
         const { jsPDF } = window.jspdf;
@@ -2297,6 +2469,7 @@
         doc.save("Wedding-Place-Cards.pdf");
         showNotification("Place cards generated successfully");
       });
+
       // Reset all data
       resetAllBtn.addEventListener("click", () => {
         if (
@@ -2336,6 +2509,7 @@
           showNotification("All data has been reset");
         }
       });
+
       // Trash area functionality
       trashArea.addEventListener("dragover", (e) => {
         e.preventDefault();
@@ -2385,6 +2559,7 @@
         trashArea.classList.remove("active");
         showNotification(`${data.name} has been removed`);
       });
+
       // View toggle functionality
       tableViewBtn.addEventListener("click", () => {
         if (currentView === "table") return;
@@ -2401,6 +2576,7 @@
         }
         showNotification("Switched to table view");
       });
+
       floorPlanViewBtn.addEventListener("click", () => {
         if (currentView === "floorPlan") return;
         currentView = "floorPlan";
@@ -2562,6 +2738,7 @@
           "Switched to floor plan view. Drag tables to reposition them."
         );
       });
+
       // Initialize empty states
       emptyGuestList.style.display = "flex";
       emptyGuestRow.style.display = "table-row";
@@ -2569,4 +2746,5 @@
     </script>
   </body>
 </html>
+
 
