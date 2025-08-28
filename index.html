@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Seating Planner</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -14,38 +14,58 @@
     />
     <style>
       :root {
-        --primary-color: #c9a8a0;
-        --secondary-color: #e8d4d0;
-        --accent-color: #f5e9e6;
-        --text-color: #5a4a42;
-        --light-text: #7d6b63;
-        --background-color: #fdf9f7;
-        --card-background: #fff9f7;
-        --border-color: #f0e6e0;
-        --success-color: #a8d5a8;
-        --error-color: #f1aeb5;
-        --warning-color: #ffd8a8;
-        --shadow-light: 0 4px 15px rgba(201, 168, 160, 0.08);
-        --shadow-medium: 0 8px 20px rgba(201, 168, 160, 0.12);
-        --shadow-heavy: 0 12px 30px rgba(201, 168, 160, 0.18);
+        /* Elegant wedding color palette */
+        --primary-color: #d4a5a5; /* Soft pink */
+        --secondary-color: #f2e6e6; /* Light pink */
+        --accent-color: #f9f2f2; /* Very light pink */
+        --tertiary-color: #e6d7d7; /* Muted pink */
+        --beige-color: #f5f0e6; /* Soft beige */
+        --text-color: #6d4c41; /* Warm brown */
+        --light-text: #8d6e63; /* Lighter warm brown */
+        --background-color: #fdfaf7; /* Creamy background */
+        --card-background: #ffffff;
+        --border-color: #f2e6e6;
+        --success-color: #a5d6a7;
+        --error-color: #ef9a9a;
+        --warning-color: #ffcc80;
+        --shadow-light: 0 2px 4px rgba(212, 165, 165, 0.1);
+        --shadow-medium: 0 4px 8px rgba(212, 165, 165, 0.15);
+        --shadow-heavy: 0 8px 16px rgba(212, 165, 165, 0.2);
       }
       body {
-        font-family: "Poppins", sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
         background-color: var(--background-color);
         margin: 0;
         padding: 15px;
         color: var(--text-color);
         line-height: 1.6;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f2e6e6' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
       }
       h1 {
         text-align: center;
-        color: var(--primary-color);
-        font-family: "Playfair Display", serif;
-        font-weight: 600;
+        color: var(--text-color);
+        font-family: "Dancing Script", cursive;
+        font-weight: 700;
         margin-bottom: 30px;
-        font-size: 32px;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        letter-spacing: 1px;
+        font-size: 42px;
+        position: relative;
+        padding-bottom: 15px;
+      }
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary-color),
+          transparent
+        );
       }
       .main-container {
         display: flex;
@@ -58,15 +78,26 @@
       }
       .panel {
         background-color: var(--card-background);
-        border-radius: 16px;
+        border-radius: 12px;
         padding: 25px;
         box-shadow: var(--shadow-light);
         margin-bottom: 25px;
         border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
       }
-      .panel:hover {
-        box-shadow: var(--shadow-medium);
+      .panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
       }
       .form-group {
         margin-bottom: 18px;
@@ -77,18 +108,17 @@
         font-weight: 500;
         color: var(--light-text);
         font-size: 14px;
-        letter-spacing: 0.5px;
       }
       input,
       select,
       button {
         width: 100%;
-        padding: 12px 15px;
+        padding: 12px 14px;
         margin-top: 5px;
         border: 1px solid var(--border-color);
-        border-radius: 10px;
+        border-radius: 8px;
         font-size: 14px;
-        font-family: "Poppins", sans-serif;
+        font-family: "Inter", sans-serif;
         transition: all 0.3s ease;
         box-sizing: border-box;
       }
@@ -96,27 +126,26 @@
       select:focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(201, 168, 160, 0.2);
+        box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.2);
       }
       button {
         background-color: var(--primary-color);
         color: white;
         font-weight: 500;
         cursor: pointer;
-        box-shadow: var(--shadow-light);
         transition: all 0.3s ease;
         border: none;
         margin-top: 12px;
-        padding: 13px 15px;
+        padding: 12px 14px;
         font-size: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        letter-spacing: 0.5px;
+        gap: 8px;
+        border-radius: 8px;
       }
       button:hover {
-        background-color: #b8968e;
+        background-color: #c89292;
         transform: translateY(-2px);
         box-shadow: var(--shadow-medium);
       }
@@ -125,10 +154,10 @@
       }
       .secondary-btn {
         background-color: var(--secondary-color);
-        color: var(--text-color);
+        color: var(--primary-color);
       }
       .secondary-btn:hover {
-        background-color: #e0c4c0;
+        background-color: #e6d0d0;
       }
       button.active {
         background-color: var(--primary-color);
@@ -151,19 +180,18 @@
       }
       .guest-table th {
         background-color: var(--accent-color);
-        padding: 15px 18px;
+        padding: 14px 18px;
         text-align: left;
         font-weight: 600;
         color: var(--light-text);
         border-bottom: 1px solid var(--border-color);
         font-size: 14px;
-        letter-spacing: 0.5px;
         position: sticky;
         top: 0;
         z-index: 10;
       }
       .guest-table td {
-        padding: 15px 18px;
+        padding: 14px 18px;
         border-bottom: 1px solid var(--border-color);
         font-size: 14px;
       }
@@ -175,53 +203,51 @@
       }
       .status-badge {
         display: inline-block;
-        padding: 5px 10px;
+        padding: 4px 10px;
         border-radius: 20px;
         font-size: 12px;
         font-weight: 500;
         text-align: center;
-        letter-spacing: 0.5px;
       }
       .status-attending {
-        background-color: var(--success-color);
-        color: #2d5a2d;
+        background-color: rgba(165, 214, 167, 0.2);
+        color: #2e7d32;
       }
       .status-pending {
-        background-color: var(--warning-color);
-        color: #856404;
+        background-color: rgba(255, 204, 128, 0.2);
+        color: #e65100;
       }
       .status-declined {
-        background-color: var(--error-color);
-        color: #721c24;
+        background-color: rgba(239, 154, 154, 0.2);
+        color: #c62828;
       }
       .side-badge {
         display: inline-block;
-        padding: 5px 10px;
+        padding: 4px 10px;
         border-radius: 20px;
         font-size: 12px;
         font-weight: 500;
-        letter-spacing: 0.5px;
       }
       .side-bride {
-        background-color: #f8c6d0;
-        color: #7d3a46;
+        background-color: rgba(255, 182, 193, 0.3);
+        color: #d63384;
       }
       .side-groom {
-        background-color: #a0c6f8;
-        color: #2c4d7d;
+        background-color: rgba(173, 216, 230, 0.3);
+        color: #0d6efd;
       }
       .side-couple {
-        background-color: var(--primary-color);
-        color: #7d3a46;
+        background-color: rgba(204, 153, 255, 0.3);
+        color: #6f42c1;
       }
       .side-other {
-        background-color: #f6e5d8;
-        color: #7d5a42;
+        background-color: rgba(211, 211, 211, 0.3);
+        color: #6c757d;
       }
       /* View Toggle */
       .view-toggle {
         display: flex;
-        gap: 12px;
+        gap: 10px;
         margin-bottom: 20px;
       }
       /* Guest List Styling */
@@ -235,39 +261,36 @@
       }
       .guest-list-header {
         background-color: var(--accent-color);
-        padding: 12px 15px;
+        padding: 12px 18px;
         font-weight: 600;
         color: var(--light-text);
         border-bottom: 1px solid var(--border-color);
         font-size: 14px;
-        letter-spacing: 0.5px;
       }
       .guest-list {
         max-height: 220px;
         overflow-y: auto;
-        /* Custom scrollbar */
         scrollbar-width: thin;
         scrollbar-color: var(--primary-color) var(--accent-color);
       }
       .guest-list::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
       }
       .guest-list::-webkit-scrollbar-track {
         background: var(--accent-color);
-        border-radius: 4px;
+        border-radius: 3px;
       }
       .guest-list::-webkit-scrollbar-thumb {
         background-color: var(--primary-color);
-        border-radius: 4px;
-        border: 1px solid var(--accent-color);
+        border-radius: 3px;
       }
       .guest-item {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 12px 15px;
+        padding: 12px 18px;
         border-bottom: 1px solid var(--border-color);
-        transition: background-color 0.2s;
+        transition: background-color 0.3s;
       }
       .guest-item:last-child {
         border-bottom: none;
@@ -280,31 +303,19 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 13px;
+        font-size: 14px;
       }
       .guest-info {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         margin-left: 10px;
       }
       .guest-side {
         font-size: 11px;
         padding: 3px 8px;
-        border-radius: 12px;
+        border-radius: 20px;
         font-weight: 500;
-      }
-      .guest-side.bride {
-        background-color: #f8c6d0;
-        color: #7d3a46;
-      }
-      .guest-side.groom {
-        background-color: #a0c6f8;
-        color: #2c4d7d;
-      }
-      .guest-side.other {
-        background-color: #f6e5d8;
-        color: #7d5a42;
       }
       .edit-guest,
       .delete-guest {
@@ -320,16 +331,15 @@
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        transition: all 0.2s;
+        transition: all 0.3s;
       }
       .edit-guest:hover,
       .delete-guest:hover {
-        background-color: rgba(201, 168, 160, 0.2);
-        color: var(--primary-color);
+        background-color: rgba(212, 165, 165, 0.1);
       }
       /* Edit Form */
       .edit-form {
-        padding: 12px 15px;
+        padding: 14px 18px;
         border-bottom: 1px solid var(--border-color);
         background-color: var(--accent-color);
       }
@@ -339,7 +349,7 @@
       }
       .tables-container {
         display: flex;
-        gap: 25px;
+        gap: 30px;
         flex-wrap: wrap;
         justify-content: center;
         padding-bottom: 15px;
@@ -349,7 +359,7 @@
         width: 100%;
         height: 600px;
         background-color: var(--accent-color);
-        border-radius: 16px;
+        border-radius: 12px;
         position: relative;
         margin-bottom: 25px;
         overflow: hidden;
@@ -361,30 +371,29 @@
         align-items: center;
         justify-content: center;
         background-color: var(--card-background);
-        border: 2px dashed var(--primary-color);
+        border: 1px solid var(--border-color);
         cursor: move;
         transition: all 0.3s ease;
         position: absolute;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         user-select: none;
         box-shadow: var(--shadow-light);
       }
       .floor-plan-table:hover {
-        transform: scale(1.05);
         box-shadow: var(--shadow-medium);
       }
       .floor-plan-table.dragging {
-        opacity: 0.7;
-        transform: scale(1.1);
+        opacity: 0.8;
+        transform: scale(1.05);
         z-index: 1000;
         box-shadow: var(--shadow-heavy);
       }
       .floor-plan-table-name {
-        font-family: "Playfair Display", serif;
+        font-family: "Inter", sans-serif;
         font-size: 12px;
-        color: var(--primary-color);
+        color: var(--text-color);
         text-align: center;
         margin-bottom: 5px;
         font-weight: 600;
@@ -393,71 +402,44 @@
         font-size: 10px;
         background-color: var(--primary-color);
         color: white;
-        border-radius: 10px;
-        padding: 2px 6px;
-        font-weight: 600;
+        border-radius: 20px;
+        padding: 2px 8px;
+        font-weight: 500;
       }
-      /* Table Card Styles */
+      /* Table Card Styles - Round tables */
       .table-card {
         position: relative;
-        width: 180px;
-        height: 180px;
+        width: 220px;
+        height: 220px;
         border-radius: 50%;
         background-color: var(--card-background);
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 18px 12px;
+        padding: 20px;
         flex-shrink: 0;
         box-shadow: var(--shadow-light);
-        border: 3px dashed var(--primary-color);
+        border: 1px solid var(--border-color);
         transition: all 0.3s ease;
-        animation: fadeIn 0.5s ease;
         overflow: hidden;
       }
-      /* Capacity Indicators */
-      .table-card.low-capacity {
-        border-color: #4caf50;
-      }
-      .table-card.medium-capacity {
-        border-color: #ffeb3b;
-      }
-      .table-card.high-capacity {
-        border-color: #ff9800;
-      }
-      .table-card.full-capacity {
-        border-color: #f44336;
-        border-style: solid;
-      }
-      .table-card.full-capacity .guest-count {
-        background-color: #f44336;
-      }
       .table-card:hover {
-        transform: scale(1.05);
         box-shadow: var(--shadow-medium);
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+        transform: translateY(-5px);
       }
       .table-header {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
       }
       .table-card h3 {
         margin: 0;
         font-family: "Playfair Display", serif;
-        font-size: 16px;
-        color: var(--primary-color);
+        font-size: 18px;
+        color: var(--text-color);
         text-align: center;
         flex-grow: 1;
         white-space: nowrap;
@@ -467,41 +449,38 @@
       }
       .guest-count {
         font-size: 12px;
-        background-color: var(--primary-color);
-        color: white;
-        border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        border-radius: 20px;
+        padding: 3px 10px;
+        font-weight: 500;
         flex-shrink: 0;
+        margin-top: 5px;
       }
       .floor-plan-delete-table {
         position: absolute;
-        top: -10px;
-        right: -10px;
+        top: -5px;
+        right: -5px;
         background: white;
-        border: 2px solid var(--primary-color);
-        color: var(--primary-color);
+        border: 1px solid var(--border-color);
+        color: var(--light-text);
         cursor: pointer;
-        font-size: 14px;
+        font-size: 12px;
         width: 24px;
         height: 24px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.2s;
+        transition: all 0.3s;
         z-index: 20;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: var(--shadow-light);
       }
       .floor-plan-delete-table:hover {
-        background: var(--primary-color);
-        color: white;
+        background: white;
+        color: var(--error-color);
         transform: scale(1.1);
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--shadow-medium);
       }
       .table-card ul {
         list-style: none;
@@ -519,12 +498,12 @@
       .table-card ul li {
         font-size: 10px;
         margin: 3px;
-        padding: 5px;
+        padding: 8px;
         border-radius: 50%;
         text-align: center;
         cursor: grab;
-        width: 34px;
-        height: 34px;
+        width: 36px;
+        height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -537,16 +516,16 @@
         white-space: nowrap;
       }
       .table-card ul li.bride {
-        background-color: #f8c6d0;
-        color: #7d3a46;
+        background-color: rgba(255, 182, 193, 0.4);
+        color: #d63384;
       }
       .table-card ul li.groom {
-        background-color: #a0c6f8;
-        color: #2c4d7d;
+        background-color: rgba(173, 216, 230, 0.4);
+        color: #0d6efd;
       }
       .table-card ul li.other {
-        background-color: #f6e5d8;
-        color: #7d5a42;
+        background-color: rgba(211, 211, 211, 0.4);
+        color: #6c757d;
       }
       .table-card ul li:hover {
         transform: scale(1.1);
@@ -580,13 +559,13 @@
         align-items: center;
         justify-content: center;
         padding: 40px;
-        color: var(--primary-color);
+        color: var(--light-text);
         text-align: center;
       }
       .empty-state i {
         font-size: 48px;
         margin-bottom: 15px;
-        opacity: 0.7;
+        opacity: 0.5;
       }
       .empty-state p {
         font-size: 16px;
@@ -599,8 +578,8 @@
         right: 30px;
         background-color: var(--primary-color);
         color: white;
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -612,17 +591,16 @@
         z-index: 1000;
       }
       .fab:hover {
-        background-color: #b8968e;
-        transform: scale(1.1) rotate(90deg);
-        box-shadow: var(--shadow-heavy);
+        background-color: #c89292;
+        transform: scale(1.05);
       }
       .fab-menu {
         position: fixed;
-        bottom: 100px;
+        bottom: 90px;
         right: 30px;
         display: none;
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         z-index: 1000;
       }
       .fab-menu.show {
@@ -642,22 +620,21 @@
       .fab-menu button {
         background-color: white;
         border: 1px solid var(--border-color);
-        padding: 15px 18px;
-        border-radius: 12px;
+        padding: 12px 16px;
+        border-radius: 8px;
         color: var(--text-color);
         font-size: 14px;
-        width: 170px;
+        width: 160px;
         box-shadow: var(--shadow-light);
         text-align: left;
         display: flex;
         align-items: center;
-        gap: 12px;
-        transition: all 0.2s ease;
+        gap: 10px;
+        transition: all 0.3s ease;
       }
       .fab-menu button:hover {
         background-color: var(--accent-color);
         transform: translateX(-5px);
-        box-shadow: var(--shadow-medium);
       }
       .fab-menu button i {
         color: var(--primary-color);
@@ -669,7 +646,7 @@
         right: 20px;
         background-color: white;
         color: var(--text-color);
-        padding: 18px 22px;
+        padding: 16px 20px;
         border-radius: 12px;
         box-shadow: var(--shadow-medium);
         border-left: 4px solid var(--primary-color);
@@ -704,8 +681,8 @@
         position: fixed;
         bottom: 30px;
         left: 30px;
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         background-color: var(--error-color);
         border-radius: 50%;
         display: flex;
@@ -717,13 +694,13 @@
         opacity: 0.8;
       }
       .trash-area.active {
-        background-color: #e67c83;
+        background-color: #d63447;
         transform: scale(1.1);
         opacity: 1;
       }
       .trash-area i {
-        font-size: 28px;
-        color: #721c24;
+        font-size: 24px;
+        color: white;
       }
       .trash-area span {
         position: absolute;
@@ -747,7 +724,7 @@
         left: 15px;
         background-color: rgba(255, 255, 255, 0.9);
         padding: 10px 15px;
-        border-radius: 10px;
+        border-radius: 8px;
         font-size: 13px;
         color: var(--light-text);
         z-index: 100;
@@ -764,7 +741,7 @@
       .action-buttons button {
         width: auto;
         margin: 0;
-        padding: 6px 8px;
+        padding: 8px 10px;
         font-size: 12px;
       }
       @media (max-width: 900px) {
@@ -778,18 +755,18 @@
       }
       @media (max-width: 600px) {
         h1 {
-          font-size: 24px;
+          font-size: 32px;
         }
         .table-card {
-          width: 150px;
-          height: 150px;
-          border-width: 2px;
-          padding: 12px 8px;
+          width: 180px;
+          height: 180px;
+          padding: 15px;
         }
         .table-card ul li {
           font-size: 9px;
-          width: 28px;
-          height: 28px;
+          width: 30px;
+          height: 30px;
+          padding: 6px;
         }
         input,
         select,
@@ -802,13 +779,13 @@
           font-size: 13px;
         }
         .trash-area {
-          width: 60px;
-          height: 60px;
+          width: 50px;
+          height: 50px;
           bottom: 15px;
           left: 15px;
         }
         .trash-area i {
-          font-size: 24px;
+          font-size: 20px;
         }
         .floor-plan {
           height: 400px;
@@ -822,7 +799,7 @@
         }
         .floor-plan-instructions {
           font-size: 11px;
-          padding: 8px 10px;
+          padding: 6px 10px;
         }
         .action-buttons {
           flex-direction: column;
@@ -843,9 +820,10 @@
           <h2
             style="
               margin-top: 0;
-              color: var(--primary-color);
-              font-size: 20px;
+              color: var(--text-color);
+              font-size: 22px;
               font-weight: 600;
+              font-family: 'Playfair Display', serif;
             "
           >
             Add Guest
@@ -891,9 +869,10 @@
           <h2
             style="
               margin-top: 30px;
-              color: var(--primary-color);
-              font-size: 20px;
+              color: var(--text-color);
+              font-size: 22px;
               font-weight: 600;
+              font-family: 'Playfair Display', serif;
             "
           >
             Unassigned Guests
@@ -902,7 +881,7 @@
             <div class="guest-list-header">Drag guests to tables</div>
             <div
               class="form-group"
-              style="margin-top: 12px; margin-bottom: 0; padding: 0 15px"
+              style="margin-top: 12px; margin-bottom: 0; padding: 0 18px"
             >
               <div style="position: relative">
                 <input
@@ -915,7 +894,7 @@
                   class="fas fa-search"
                   style="
                     position: absolute;
-                    left: 15px;
+                    left: 18px;
                     top: 50%;
                     transform: translateY(-50%);
                     color: var(--primary-color);
@@ -933,9 +912,10 @@
           <h2
             style="
               margin-top: 30px;
-              color: var(--primary-color);
-              font-size: 20px;
+              color: var(--text-color);
+              font-size: 22px;
               font-weight: 600;
+              font-family: 'Playfair Display', serif;
             "
           >
             Add Table
@@ -971,7 +951,12 @@
         <div class="guest-table-container">
           <div
             class="guest-list-header"
-            style="padding: 18px; font-size: 18px; font-weight: 600"
+            style="
+              padding: 18px;
+              font-size: 20px;
+              font-weight: 600;
+              font-family: 'Playfair Display', serif;
+            "
           >
             <i class="fas fa-users"></i> Guest List
           </div>
@@ -993,7 +978,7 @@
                   style="
                     text-align: center;
                     padding: 25px;
-                    color: var(--primary-color);
+                    color: var(--light-text);
                   "
                 >
                   <i class="fas fa-users"></i><br />No guests added yet
@@ -1007,9 +992,10 @@
           <h2
             style="
               margin-top: 0;
-              color: var(--primary-color);
-              font-size: 20px;
+              color: var(--text-color);
+              font-size: 22px;
               font-weight: 600;
+              font-family: 'Playfair Display', serif;
             "
           >
             Seating Arrangement
@@ -1100,47 +1086,46 @@
       // Function to renumber tables after deletion
       function renumberTables() {
         // Find all auto-named tables (pattern: "Table X")
-        const autoNamedTables = weddingData.tables.filter(table => 
+        const autoNamedTables = weddingData.tables.filter((table) =>
           /^Table \d+$/.test(table.name)
         );
-        
         // Sort by the number in the name
         autoNamedTables.sort((a, b) => {
-          const numA = parseInt(a.name.split(' ')[1]);
-          const numB = parseInt(b.name.split(' ')[1]);
+          const numA = parseInt(a.name.split(" ")[1]);
+          const numB = parseInt(b.name.split(" ")[1]);
           return numA - numB;
         });
-        
         // Renumber starting from 1
         autoNamedTables.forEach((table, index) => {
           const oldName = table.name;
           const newName = `Table ${index + 1}`;
-          
           // Update the table name in the data model
           table.name = newName;
-          
           // Update table positions if they exist
           if (weddingData.tablePositions[oldName]) {
-            weddingData.tablePositions[newName] = weddingData.tablePositions[oldName];
+            weddingData.tablePositions[newName] =
+              weddingData.tablePositions[oldName];
             delete weddingData.tablePositions[oldName];
           }
-          
           // Update DOM in table view if it exists
-          const tableElement = tables.find(t => 
-            t.querySelector('h3') && t.querySelector('h3').textContent === oldName
+          const tableElement = tables.find(
+            (t) =>
+              t.querySelector("h3") &&
+              t.querySelector("h3").textContent === oldName
           );
           if (tableElement) {
-            tableElement.querySelector('h3').textContent = newName;
+            tableElement.querySelector("h3").textContent = newName;
           }
-          
           // Update DOM in floor plan view if it exists
-          const floorPlanTable = document.querySelector(`.floor-plan-table[data-table-name="${oldName}"]`);
+          const floorPlanTable = document.querySelector(
+            `.floor-plan-table[data-table-name="${oldName}"]`
+          );
           if (floorPlanTable) {
             floorPlanTable.dataset.tableName = newName;
-            floorPlanTable.querySelector('.floor-plan-table-name').textContent = newName;
+            floorPlanTable.querySelector(".floor-plan-table-name").textContent =
+              newName;
           }
         });
-        
         // Save the updated data
         saveData();
       }
@@ -1148,21 +1133,18 @@
       function calculateNewTablePosition() {
         // Grid layout for initial positioning
         const cols = 4;
-        const tableWidth = 120; // Including margin
-        const tableHeight = 120; // Including margin
+        const tableWidth = 140; // Including margin
+        const tableHeight = 140; // Including margin
         const startX = 50;
         const startY = 100;
-        
         // Count existing tables
         const existingTables = weddingData.tables.length;
-        
         // Calculate position in grid
         const row = Math.floor(existingTables / cols);
         const col = existingTables % cols;
-        
         return {
           left: startX + col * tableWidth,
-          top: startY + row * tableHeight
+          top: startY + row * tableHeight,
         };
       }
       // Render loaded data
@@ -1725,112 +1707,131 @@
       // Function to rebuild tables container from data model
       function rebuildTablesContainer() {
         // Clear the tables container
-        tablesContainer.innerHTML = '';
+        tablesContainer.innerHTML = "";
         tables = [];
-        
         // If no tables, show empty state
         if (weddingData.tables.length === 0) {
           tablesContainer.appendChild(emptyTables);
-          emptyTables.style.display = 'flex';
+          emptyTables.style.display = "flex";
           return;
         }
-        
         // Rebuild each table
         weddingData.tables.forEach((tableData, index) => {
           // Create a new table element for table view
-          const table = document.createElement('div');
-          table.className = 'table-card';
+          const table = document.createElement("div");
+          table.className = "table-card";
           table.dataset.tableNumber = index + 1;
-
-          const header = document.createElement('div');
-          header.className = 'table-header';
-
-          const title = document.createElement('h3');
+          const header = document.createElement("div");
+          header.className = "table-header";
+          const title = document.createElement("h3");
           title.textContent = tableData.name;
-
-          const count = document.createElement('div');
-          count.className = 'guest-count';
+          const count = document.createElement("div");
+          count.className = "guest-count";
           count.textContent = tableData.guests ? tableData.guests.length : 0;
-
           header.appendChild(title);
           header.appendChild(count);
-
           table.appendChild(header);
-
-          const ul = document.createElement('ul');
+          const ul = document.createElement("ul");
           table.appendChild(ul);
-
           // Add guests to the table
           if (tableData.guests && tableData.guests.length > 0) {
-            tableData.guests.forEach(guestName => {
+            tableData.guests.forEach((guestName) => {
               // Find guest data
-              const guestData = weddingData.guests.find(g => g.name === guestName);
+              const guestData = weddingData.guests.find(
+                (g) => g.name === guestName
+              );
               if (guestData) {
                 // Create guest element
-                const li = document.createElement('li');
-                const displayName = guestData.name.length > 6 ? guestData.name.substring(0, 5) + '...' : guestData.name;
+                const li = document.createElement("li");
+                const displayName =
+                  guestData.name.length > 6
+                    ? guestData.name.substring(0, 5) + "..."
+                    : guestData.name;
                 li.textContent = displayName;
                 li.draggable = true;
                 li.dataset.name = guestData.name;
                 li.dataset.fullname = guestData.name;
                 li.dataset.side = guestData.side;
                 li.dataset.rsvp = guestData.rsvp;
-                li.classList.add(guestData.side === 'Bride' ? 'bride' : guestData.side === 'Groom' ? 'groom' : 'other');
-                li.addEventListener('dragstart', (ev) => {
-                  ev.dataTransfer.setData('text/plain', JSON.stringify(guestData));
-                  trashArea.classList.add('active');
+                li.classList.add(
+                  guestData.side === "Bride"
+                    ? "bride"
+                    : guestData.side === "Groom"
+                    ? "groom"
+                    : "other"
+                );
+                li.addEventListener("dragstart", (ev) => {
+                  ev.dataTransfer.setData(
+                    "text/plain",
+                    JSON.stringify(guestData)
+                  );
+                  trashArea.classList.add("active");
                 });
-                li.addEventListener('dragend', () => {
-                  trashArea.classList.remove('active');
+                li.addEventListener("dragend", () => {
+                  trashArea.classList.remove("active");
                 });
                 ul.appendChild(li);
               }
             });
           }
-
           // Add drop event listener
-          table.addEventListener('dragover', (e) => {
+          table.addEventListener("dragover", (e) => {
             e.preventDefault();
-            trashArea.classList.remove('active');
+            trashArea.classList.remove("active");
           });
-
-          table.addEventListener('drop', (e) => {
+          table.addEventListener("drop", (e) => {
             e.preventDefault();
-            const data = JSON.parse(e.dataTransfer.getData('text/plain'));
+            const data = JSON.parse(e.dataTransfer.getData("text/plain"));
             // Check if table is full
-            const currentGuests = ul.querySelectorAll('li').length;
+            const currentGuests = ul.querySelectorAll("li").length;
             if (currentGuests >= 12) {
-              showNotification('Table capacity reached (12 guests max)', 'error');
+              showNotification(
+                "Table capacity reached (12 guests max)",
+                "error"
+              );
               return;
             }
             // Remove from guest list or other tables
-            const sourceElements = [...document.querySelectorAll('.guest-item, .table-card ul li')];
-            sourceElements.forEach(el => {
+            const sourceElements = [
+              ...document.querySelectorAll(".guest-item, .table-card ul li"),
+            ];
+            sourceElements.forEach((el) => {
               if (el.dataset.name === data.name) {
                 el.remove();
               }
             });
             // Create guest element
-            const li = document.createElement('li');
-            const displayName = data.name.length > 6 ? data.name.substring(0, 5) + '...' : data.name;
+            const li = document.createElement("li");
+            const displayName =
+              data.name.length > 6
+                ? data.name.substring(0, 5) + "..."
+                : data.name;
             li.textContent = displayName;
             li.draggable = true;
             li.dataset.name = data.name;
             li.dataset.fullname = data.name;
             li.dataset.side = data.side;
             li.dataset.rsvp = data.rsvp;
-            li.classList.add(data.side === 'Bride' ? 'bride' : data.side === 'Groom' ? 'groom' : 'other');
-            li.addEventListener('dragstart', (ev) => {
-              ev.dataTransfer.setData('text/plain', JSON.stringify(data));
-              trashArea.classList.add('active');
+            li.classList.add(
+              data.side === "Bride"
+                ? "bride"
+                : data.side === "Groom"
+                ? "groom"
+                : "other"
+            );
+            li.addEventListener("dragstart", (ev) => {
+              ev.dataTransfer.setData("text/plain", JSON.stringify(data));
+              trashArea.classList.add("active");
             });
-            li.addEventListener('dragend', () => {
-              trashArea.classList.remove('active');
+            li.addEventListener("dragend", () => {
+              trashArea.classList.remove("active");
             });
             ul.appendChild(li);
             // Update data model
             const tableName = title.textContent;
-            const tableIndex = weddingData.tables.findIndex(t => t.name === tableName);
+            const tableIndex = weddingData.tables.findIndex(
+              (t) => t.name === tableName
+            );
             if (tableIndex !== -1) {
               if (!weddingData.tables[tableIndex].guests) {
                 weddingData.tables[tableIndex].guests = [];
@@ -1841,11 +1842,9 @@
             updateGuestCount();
             showNotification(`${data.name} seated at ${title.textContent}`);
           });
-
           tablesContainer.appendChild(table);
           tables.push(table);
         });
-
         updateGuestCount();
       }
       // Create table function
@@ -2124,7 +2123,7 @@
         doc.setFontSize(22);
         doc.text("Wedding Seating Chart", 105, y, { align: "center" });
         y += 15;
-        doc.setFont("Poppins", "normal");
+        doc.setFont("Inter", "normal");
         doc.setFontSize(12);
         doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 105, y, {
           align: "center",
@@ -2136,7 +2135,7 @@
         doc.text("Guest List", 20, y);
         y += 10;
         // Table headers
-        doc.setFont("Poppins", "normal");
+        doc.setFont("Inter", "normal");
         doc.setFontSize(10);
         doc.text("Name", 20, y);
         doc.text("Side", 80, y);
@@ -2177,7 +2176,7 @@
           doc.setFontSize(16);
           doc.text("Unassigned Guests", 20, y);
           y += 8;
-          doc.setFont("Poppins", "normal");
+          doc.setFont("Inter", "normal");
           doc.setFontSize(12);
           unassigned.forEach((item) => {
             if (y > 270) {
@@ -2212,7 +2211,7 @@
             doc.setFontSize(16);
             doc.text(tableName, 20, y);
             y += 8;
-            doc.setFont("Poppins", "normal");
+            doc.setFont("Inter", "normal");
             doc.setFontSize(12);
             doc.text(`Guests: ${guests.length}`, 20, y);
             y += 8;
@@ -2264,7 +2263,7 @@
               y = margin;
             }
             // Draw card border
-            doc.setDrawColor(201, 168, 160);
+            doc.setDrawColor(212, 165, 165);
             doc.setLineWidth(0.5);
             doc.rect(x, y, cardWidth, cardHeight);
             // Add guest name
@@ -2274,7 +2273,7 @@
               align: "center",
             });
             // Add table name
-            doc.setFont("Poppins", "normal");
+            doc.setFont("Inter", "normal");
             doc.setFontSize(10);
             doc.text(`Table: ${tableName}`, x + cardWidth / 2, y + 35, {
               align: "center",
@@ -2423,7 +2422,7 @@
         venue.style.left = "20px";
         venue.style.right = "20px";
         venue.style.bottom = "20px";
-        venue.style.border = "2px dashed #c9a8a0";
+        venue.style.border = "2px dashed #d4a5a5";
         venue.style.borderRadius = "10px";
         floorPlan.appendChild(venue);
         // Add stage area
@@ -2434,8 +2433,8 @@
         stage.style.transform = "translateX(-50%)";
         stage.style.width = "200px";
         stage.style.height = "40px";
-        stage.style.backgroundColor = "#c9a8a0";
-        stage.style.borderRadius = "5px";
+        stage.style.backgroundColor = "#d4a5a5";
+        stage.style.borderRadius = "20px";
         stage.style.display = "flex";
         stage.style.alignItems = "center";
         stage.style.justifyContent = "center";
@@ -2474,12 +2473,13 @@
                 weddingData.tables.splice(tableIndex, 1);
                 delete weddingData.tablePositions[tableName];
                 saveData();
-                
                 // Renumber tables after deletion
                 renumberTables();
               }
               // Remove from tables array
-              tables = tables.filter(t => t.querySelector('h3').textContent !== tableName);
+              tables = tables.filter(
+                (t) => t.querySelector("h3").textContent !== tableName
+              );
               tableElement.remove();
               showNotification(`Table "${tableName}" deleted`);
               // Show empty state if no tables
@@ -2569,3 +2569,4 @@
     </script>
   </body>
 </html>
+
